@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>晋中信息学院校园服务</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft Yahei", sans-serif;
+        }
+        /* 页面背景：校徽红色 */
+        body {
+            background-color: #a81628;
+            padding: 24px 16px;
+        }
+        .container {
+            max-width: 750px;
+            margin: 0 auto;
+        }
+        .page-title {
+            color: #ffffff;
+            text-align: center;
+            font-size: 26px;
+            margin-bottom: 28px;
+            font-weight: bold;
+        }
+        /* 第一行：3个卡片 */
+        .row-three {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap:12px;
+            margin-bottom:16px;
+        }
+        /* 第二行：2个卡片 */
+        .row-two {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap:12px;
+            margin-bottom:16px;
+        }
+        .card-item {
+            background:#ffffff;
+            border-radius:12px;
+            padding:20px 8px;
+            text-align:center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+        }
+        .card-item a {
+            text-decoration:none;
+            color:#a81628;
+            font-size:16px;
+            font-weight:500;
+        }
+
+        /* =====轮播图 公众号首图900*383比例===== */
+        .swiper-wrap{
+            width:100%;
+            border-radius:12px;
+            overflow:hidden;
+            position:relative;
+            margin:24px 0;
+        }
+        .swiper-box{
+            display:flex;
+            transition: transform 0.5s ease;
+        }
+        .swiper-item{
+            flex:0 0 100%;
+            /* 公众号首图宽高比 900 / 383 */
+            aspect-ratio: 900 / 383;
+            overflow: hidden;
+        }
+        .swiper-item a{
+            display:block;
+            width:100%;
+            height:100%;
+        }
+        .swiper-item a img{
+            width:100%;
+            height:100%;
+            object-fit: cover;
+            display:block;
+        }
+        /* 轮播小圆点 */
+        .dots{
+            position:absolute;
+            bottom:10px;
+            left:0;
+            width:100%;
+            display:flex;
+            justify-content:center;
+            gap:8px;
+        }
+        .dot{
+            width:8px;
+            height:8px;
+            border-radius:50%;
+            background:rgba(255,255,255,0.4);
+        }
+        .dot.active{
+            background:#ffffff;
+        }
+
+        /* 下方多模块区块 */
+        .module-wrap {
+            background:#fff;
+            border-radius:12px;
+            padding:20px;
+            margin-bottom:20px;
+        }
+        .module-title {
+            font-size:18px;
+            color:#a81628;
+            margin-bottom:14px;
+            font-weight:bold;
+            border-left:4px solid #a81628;
+            padding-left:10px;
+        }
+        .link-grid {
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:12px;
+        }
+        .link-grid a {
+            display:block;
+            background:#f7f0f1;
+            text-align:center;
+            padding:14px;
+            border-radius:8px;
+            text-decoration:none;
+            color:#333;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="page-title">校园论坛服务中心</h1>
+
+    <!-- 第一行：3个小模块 -->
+    <div class="row-three">
+        <div class="card-item">
+            <a href="https://www.jzci.edu.cn/">官网</a >
+        </div>
+        <div class="card-item">
+            <a href="https://mp.weixin.qq.com/s/1hFczYjSkap2TlU2kqAHUw">校历</a >
+        </div>
+        <div class="card-item">
+            <a href="https://h5-ol.sns.sohu.com/hy-v3-h5/education/freshman-schedule/1273063591821646976">课表</a >
+        </div>
+    </div>
+
+    <!-- 第二行：2个小模块 -->
+    <div class="row-two">
+        <div class="card-item">
+            <a href="https://authserver.jzci.edu.cn/authserver/login?service=https%3A%2F%2Fehall.jzci.edu.cn%2Flogin%3FportalService%3Dhttps%253A%252F%252Fehall.jzci.edu.cn%252Findex.html%2523%252F">门户网站</a >
+        </div>
+        <div class="card-item">
+            <a href="https://www.wjx.cn/vm/PWj5zVc.aspx">接诉即办</a >
+        </div>
+    </div>
+
+    <!-- =========轮播图模块（2张图片，下面全部保持原样）========= -->
+    <div class="swiper-wrap">
+        <div class="swiper-box" id="swiperBox">
+            <div class="swiper-item">
+                <a href="https://pd.qq.com/qqweb/qunpro/share?_wv=3&_wwv=128&appChannel=share&inviteCode=2369jGsblap&businessType=7">
+                    < img src="pic1.png" alt="图1">
+                </a >
+            </div>
+            <div class="swiper-item">
+                <a href="https://pd.qq.com/g/XYTZSC2021/text/15408018?tab=1&keyword=%E6%99%8B%E4%B8%AD%E4%BF%A1%E6%81%AF%E5%AD%A6%E9%99%A2&subc=21821101">
+                    < img src="pic2.png" alt="图2">
+                </a >
+            </div>
+        </div>
+        <div class="dots" id="dotsBox"></div>
+    </div>
+
+    <!-- 下方模块1 -->
+    <div class="module-wrap">
+        <div class="module-title">快速导航</div>
+        <div class="link-grid">
+            <a href="https://pd.qq.com/g/XYTZSC2021?tab=1&keyword=%E6%99%8B%E4%B8%AD%E4%BF%A1%E6%81%AF%E5%AD%A6%E9%99%A2&subc=21821101">求助问答</a >
+            <a href="https://qun.qq.com/universal-share/share?ac=1&authKey=KLssdievsekTJufoUSmXQa6oDhnDI3PdTYaso42nhbgdVvr8vBEWlDv%2F9d8FZq6D&busi_data=eyJncm91cENvZGUiOiI5Mzc5NDEzNzAiLCJ0b2tlbiI6IkZmczdDM1dxVm1zQ3greHNDU05TSko2MTJqSUVZeVV1NzBXT3NkMjFMcWIxelpPT3pucGw0K1Q0Sitxa2NsNTYiLCJ1aW4iOiI2NzI2MjI5NDYifQ%3D%3D&data=wzRy_LaBf4_vbiAL8z26-k_PeisZ2HshC5efa_2_9F31LXQ4KPoRgECQLhDPvW_17730p5bi3bkmu0G25Or9fw&svctype=4&tempid=h5_group_info">万能服务</a >
+            <a href="https://pd.qq.com/g/XYTZSC2021/text/15408018?tab=1&keyword=%E6%99%8B%E4%B8%AD%E4%BF%A1%E6%81%AF%E5%AD%A6%E9%99%A2&subc=21821101">闲置交流</a >
+            <a href="https://qun.qq.com/universal-share/share?ac=1&authKey=wwDKofT%2FV4%2FB8ayvMDEyuLVgruWMqf4tCdeJ%2FhcuWeaGPJ8BxF4AvfFQN6utIbdS&busi_data=eyJncm91cENvZGUiOiI5ODExNDg2ODkiLCJ0b2tlbiI6Ii9KWGg2S2h0b2tUUUM2RW82N2FRQ25YU0RZUzgrZHAxbnhnc0U2YS9mVHZ3S3picUgzZWRUaS92bVNuYUorZXQiLCJ1aW4iOiI2NzI2MjI5NDYifQ%3D%3D&data=qzPe9DeCsb6-k6sYrTQ_xZmGaaOpARJgNVe-kUvlCR_AYFYjQNE5iegYmLPbw8A-kGbaxYWa81u8h8kMDx2RLw&svctype=4&tempid=h5_group_info">兼职招聘</a >
+        </div>
+    </div>
+
+    <!-- 下方模块2，可以继续复制整块增加更多模块 -->
+    <div class="module-wrap">
+        <div class="module-title">更多服务</div>
+        <div class="link-grid">
+            <a href="https://zsb.jzci.edu.cn/">录取查询</a >
+            <a href="https://gjzwfw.www.gov.cn/col/col1388/index.html">通知书查询</a >
+            <a href="https://yz.chsi.com.cn/">研招网</a >
+            <a href="https://cet.neea.edu.cn/">四六级官网</a >
+        </div>
+    </div>
+
+</div>
+
+<script>
+//轮播自动播放逻辑
+const swiperBox = document.getElementById('swiperBox');
+const dotsBox = document.getElementById('dotsBox');
+const itemList = document.querySelectorAll('.swiper-item');
+const total = itemList.length;
+let index = 0;
+
+//生成小圆点
+for(let i=0;i<total;i++){
+    const d = document.createElement('span');
+    d.className = 'dot' + (i===0?' active':'');
+    dotsBox.appendChild(d);
+}
+const dotList = document.querySelectorAll('.dot');
+
+function play(){
+    index++;
+    if(index >= total){
+        index = 0;
+    }
+    swiperBox.style.transform = `translateX(-${index*100}%)`;
+    dotList.forEach((d,i)=>{
+        d.classList.toggle('active', i===index);
+    })
+}
+//每3秒自动切换一张，3000毫秒=3秒，可以自行修改
+setInterval(play,3000);
+</script>
+</body>
+</html>
