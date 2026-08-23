@@ -11,7 +11,6 @@
             box-sizing: border-box;
             font-family: "Microsoft Yahei", sans-serif;
         }
-        /* 页面背景：校徽红色 */
         body {
             background-color: #a81628;
             padding: 24px 16px;
@@ -27,14 +26,12 @@
             margin-bottom: 28px;
             font-weight: bold;
         }
-        /* 第一行：3个卡片 */
         .row-three {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             gap:12px;
             margin-bottom:16px;
         }
-        /* 第二行：2个卡片 */
         .row-two {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -54,8 +51,6 @@
             font-size:16px;
             font-weight:500;
         }
-
-        /* =====轮播图 公众号首图900*383比例===== */
         .swiper-wrap{
             width:100%;
             border-radius:12px;
@@ -69,7 +64,6 @@
         }
         .swiper-item{
             flex:0 0 100%;
-            /* 公众号首图宽高比 900 / 383 */
             aspect-ratio: 900 / 383;
             overflow: hidden;
         }
@@ -84,7 +78,6 @@
             object-fit: cover;
             display:block;
         }
-        /* 轮播小圆点 */
         .dots{
             position:absolute;
             bottom:10px;
@@ -103,8 +96,6 @@
         .dot.active{
             background:#ffffff;
         }
-
-        /* 下方多模块区块 */
         .module-wrap {
             background:#fff;
             border-radius:12px;
@@ -139,10 +130,9 @@
 <div class="container">
     <h1 class="page-title">校园论坛服务中心</h1>
 
-    <!-- 第一行：3个小模块 -->
     <div class="row-three">
         <div class="card-item">
-            <a href="https://www.jzci.edu.cn/">官网</a >
+            <a href=" ">官网</a >
         </div>
         <div class="card-item">
             <a href="https://mp.weixin.qq.com/s/1hFczYjSkap2TlU2kqAHUw">校历</a >
@@ -152,7 +142,6 @@
         </div>
     </div>
 
-    <!-- 第二行：2个小模块 -->
     <div class="row-two">
         <div class="card-item">
             <a href="https://authserver.jzci.edu.cn/authserver/login?service=https%3A%2F%2Fehall.jzci.edu.cn%2Flogin%3FportalService%3Dhttps%253A%252F%252Fehall.jzci.edu.cn%252Findex.html%2523%252F">门户网站</a >
@@ -162,24 +151,22 @@
         </div>
     </div>
 
-    <!-- =========轮播图模块（2张图片，下面全部保持原样）========= -->
     <div class="swiper-wrap">
         <div class="swiper-box" id="swiperBox">
             <div class="swiper-item">
                 <a href="https://pd.qq.com/qqweb/qunpro/share?_wv=3&_wwv=128&appChannel=share&inviteCode=2369jGsblap&businessType=7">
-                    < img src="pic1.jpg" alt="图1">
+                    <img src="pic1.jpg" alt="图1">
                 </a >
             </div>
             <div class="swiper-item">
                 <a href="https://pd.qq.com/g/XYTZSC2021/text/15408018?tab=1&keyword=%E6%99%8B%E4%B8%AD%E4%BF%A1%E6%81%AF%E5%AD%A6%E9%99%A2&subc=21821101">
-                    < img src="pic2.jpg" alt="图2">
+                    <img src="pic2.jpg" alt="图2">
                 </a >
             </div>
         </div>
         <div class="dots" id="dotsBox"></div>
     </div>
 
-    <!-- 下方模块1 -->
     <div class="module-wrap">
         <div class="module-title">快速导航</div>
         <div class="link-grid">
@@ -190,7 +177,6 @@
         </div>
     </div>
 
-    <!-- 下方模块2，可以继续复制整块增加更多模块 -->
     <div class="module-wrap">
         <div class="module-title">更多服务</div>
         <div class="link-grid">
@@ -204,14 +190,12 @@
 </div>
 
 <script>
-//轮播自动播放逻辑
 const swiperBox = document.getElementById('swiperBox');
 const dotsBox = document.getElementById('dotsBox');
 const itemList = document.querySelectorAll('.swiper-item');
 const total = itemList.length;
 let index = 0;
 
-//生成小圆点
 for(let i=0;i<total;i++){
     const d = document.createElement('span');
     d.className = 'dot' + (i===0?' active':'');
@@ -229,7 +213,6 @@ function play(){
         d.classList.toggle('active', i===index);
     })
 }
-//每3秒自动切换一张，3000毫秒=3秒，可以自行修改
 setInterval(play,3000);
 </script>
 </body>
